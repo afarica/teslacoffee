@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}My shop{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+	<div id="header">
+    	<a href="/" class="logo">My shop</a>
+	</div>
+<div class='social'>
+    <ul>
+        <li class="google">
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
+            Login with Google
+            </a>
+        </li>
+        <li class="vk">
+            <a href="{% url 'social:begin' 'vk-oauth2' %}">Login with VK</a>
+        </li>
+            <li class="facebook"><a href="{% url "social:begin" "facebook" %}">
+            Signin with Facebook</a></li>
+    </ul>
+</div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+	<div id="subheader">
+    	<div class="cart">Your cart is empty.</div> 
+	</div>
+	<div id="content">
+    	{% block content %}
+    	{% endblock %}
+	</div>
+</body>
+</html>
